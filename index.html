@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Counter</title>
+    <style>
+      .hed {
+        color: aquamarine;
+      }
+      #img {
+        height: 80px;
+        width: 80px;
+      }
+      .header {
+        padding-left: 50px;
+      }
+      .header img {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background: #555;
+      }
+
+      .header h1 {
+        position: relative;
+        top: 18px;
+        left: 10px;
+      }
+      .div1 {
+        text-align: center;
+      }
+      #text {
+        width: 70%;
+        border-color: aquamarine;
+        font-size: 20px;
+      }
+      #hed1 {
+        font-size: 22px;
+        margin: 0px;
+      }
+      p {
+        color: hsl(0, 75%, 46%);
+        font-size: 25px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="https://istartup.hk/braving-the-epidemic/images/article/7.-Clare.AI.jpg"
+        id="img"
+      />
+      <h1 class="hed">Word Counter</h1>
+    </div>
+    <br /><br />
+    <div class="div1">
+      <span class="hed" id="hed1">&nbsp&nbspEvery Word Count</span><br /><br />
+
+      <textarea id="text" cols="30" rows="10"></textarea>
+      <p>
+        <span id="word">0</span>Words
+        <span id="char">0</span>Characters
+      </p>
+    </div>
+  </body>
+  <script>
+    let text = document.getElementById("text");
+    text.addEventListener('input',function(){
+        var text=this.value;
+        let char=text.length;
+        console.log(char)
+       document.getElementById("char").innerHTML=char;
+
+       text=text.trim();
+       let words=text.split(" ");
+       let cleanList=words.filter(function(elm){
+         return elm !="";
+       });
+       console.log(cleanList)
+       document.getElementById('word').innerHTML=cleanList.length;
+    })
+  </script>
+</html>
